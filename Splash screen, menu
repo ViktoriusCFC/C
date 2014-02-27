@@ -1,0 +1,87 @@
+//Header Files//
+
+#include <stdio.h>
+#include <conio.h>
+#include <dos.h>
+#include "bcio2.h"
+#include <windows.h>
+#include <stdlib.h>
+
+//Functions//
+
+void settextbackgroundcolour(int colour, int intensity);
+void splash (void);
+int main (void);
+void settextcolour(int colour, int intensity);
+
+//Splash Screen//
+
+int main()
+{
+splash();
+}
+	
+void splash(void){
+
+settextcolour (white, NORMAL);   //white text
+settextbackgroundcolour (yellow, NORMAL);
+
+
+int i=0;
+int logo[]= {
+ 13,
+ 32,32,32,32,32,32,32,32,32,32,32,32,13,
+ 32,219,32,32,32,32,32,219,32,32,32,32,219,13,
+ 32,32,219,32,32,32,219,32,32,32,32,32,219,13,
+ 32,32,32,219,32,219,32,32,32,219,219,219,219,219,219,219,32,32,13,
+ 32,32,32,32,219,32,32,32,32,32,32,32,219,13,
+ 32,32,32,32,32,32,32,32,32,32,32,32,219,13,
+ 32,32,32,32,32,32,32,32,32,13,
+ 32,32,32,32,32,32,32,32,32,13,
+ 32,32,32,32,32,32,32,32,32,13,
+ 0 };
+
+
+clrscr();
+for(;logo[i] != '\0' ;i++) {
+	if(logo[i]==13){
+printf("\n");
+}
+printf("%c", logo[i]);
+}
+
+Sleep(55000);
+
+
+clrscr();
+//Program Menu//
+int menu;
+printf(" 1 Create a file\n");
+printf(" 2 Save a file\n");
+printf(" 3 Open a file\n");
+printf(" 4 Exit Application\n");
+scanf("%d",&menu);
+
+      switch(menu)
+      {
+           case 1:
+                 clrscr();   //Clears the screen when user enters Y and X
+                 printf("Enter the locations for the Dilithium crystals.\n");
+                 printf("X:\n");
+                 printf("Y:\n");
+                 break;
+           case 2:
+                  clrscr();
+                  printf("Save a file\n");
+				  break;
+            case 3:
+                  clrscr();
+                  printf("Open a file\n");
+                  break;
+            case 4:
+				  clrscr();
+                  printf("Exit the application\n");  //Closes the application when user enters 4.
+
+		}
+    getch();
+}
